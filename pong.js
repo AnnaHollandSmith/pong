@@ -3,6 +3,8 @@ var animate = window.requestAnimationFrame ||
   window.mozRequestAnimationFrame ||
   function(callback) { window.setTimeout(callback, 1000/60) };
 
+// setting up the canvas
+
 var canvas = document.createElement('canvas');
 var width = 400;
 var height = 600;
@@ -28,3 +30,31 @@ var render = function() {
   context.fillStyle = "#FF00FF";
   context.fillRect(0, 0, width, height);
 };
+
+// adding paddles and ball
+
+function Paddle(x, y, width, height) {
+  this.x = x;
+  this.y = y;
+  this.width = width;
+  this.height = height;
+  this.x_speed = 0;
+  this.y_speed = 0;
+}
+
+Paddle.prototype.render = function() {
+  context.fillStyle = "#0000FF";
+  context.fillRect(this.x, this.y, this.width, this.height);
+};
+
+// create objects to represent player one and player two
+
+function Player() {
+  this.paddle = new PAddle(175, 580, 50, 10);
+}
+
+function Computer() {
+  this.paddle = new Paddle(175, 10, 50, 10)
+}
+
+// render the paddles
