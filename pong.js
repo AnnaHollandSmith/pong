@@ -31,7 +31,7 @@ var render = function() {
   context.fillRect(0, 0, width, height);
 };
 
-// adding paddles and ball
+// adding paddles
 
 function Paddle(x, y, width, height) {
   this.x = x;
@@ -58,3 +58,28 @@ function Computer() {
 }
 
 // render the paddles
+
+Player.prototype.render = function() {
+  this.paddle.render();
+};
+
+Computer.prototype.render = function() {
+  this.paddle.render();
+};
+
+// add the ball object
+
+function Ball(x, y) {
+  this.x = x;
+  this.y = y;
+  this.x_speed = 0;
+  this.y_speed = 3;
+  this.radius = 5;
+}
+
+Ball.prototype.render = function() {
+  context.beginPath();
+  context.arc(this.x, this.y, this.radius, 2 * Math.PI, false);
+  context.fillStyle = "#000000";
+  context.fill();
+};
