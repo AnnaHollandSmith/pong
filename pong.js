@@ -17,6 +17,14 @@ window.onload = function() {
 
 var step = function() {
   update();
-  render():
+  render();
   animate(step);
-}
+};
+
+var update = function() {
+};
+
+var render = function() {
+  context.fillStyle = "#FF00FF";
+  context.fillRect(0, 0, width, height);
+};
